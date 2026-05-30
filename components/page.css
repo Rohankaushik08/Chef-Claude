@@ -37,7 +37,8 @@
     border-radius: 10px;
     font-family: Inter;
     height: 50px;
-    width:200px;
+    width:17vw;
+    min-width: 125px;
     font-size: 20px;
     background-color: #141413;
     color: white;
