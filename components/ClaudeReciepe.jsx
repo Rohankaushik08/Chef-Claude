@@ -1,11 +1,11 @@
 import "./page.css"
 import ReactMarkdown from 'react-markdown'
-export default function ClaudeReciepe({recipe}){
+export default function ClaudeReciepe(props){
     return(
-        <fieldset>
+        <fieldset >
             <legend>Suggested Reciepe</legend>
         <section className="suggested-recipe-container">
-                <ReactMarkdown>{recipe}</ReactMarkdown>
+                <ReactMarkdown>{props.recipe}</ReactMarkdown>
         </section>
         </fieldset>
     )

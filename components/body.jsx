@@ -17,7 +17,6 @@ export default function Body() {
     const [recipe,setRecipe] = React.useState("");
     async function getReciepe(){
         setRecipeShown(true);
-
         try {
             const rec = await getRecipeFromMistral(ingredients);
             setRecipe(rec)
@@ -25,16 +24,20 @@ export default function Body() {
             setRecipe("Failed To Fetch")
         }
     }
+    const reciepeSection = React.useRef(null);
+    React.useEffect(()=>{
+        if(recipe!="") reciepeSection.current.scrollIntoView();
+    },[recipe])
     return (
         <div id="box">
             <div id="MainBox">
                 <div id="sbmtbox">
-                    <form action={OnSubmit}>
+                    <form action={OnSubmit} >
                         <input type="text" name="ing" placeholder="e.g. Onion" id="inpt"></input>
                         <button id="sbmt">+Add Ingredient</button>
                     </form>
                 </div>
-                {ingredients.length > 0 && <Ingrediants ingList={ingredients} getReciepe={getReciepe}/>}
+                {ingredients.length > 0 && <Ingrediants ref={reciepeSection} ingList={ingredients} getReciepe={getReciepe}/>}
                 {recipeShown && <ClaudeReciepe recipe={recipe}/>}
             </div>
         </div>

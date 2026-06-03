@@ -1,13 +1,26 @@
 *{
     font-family: Inter;
 }
-
+body{
+    margin: 0;
+}
+#main{
+    padding: 115px;
+}
+#toScroll{
+    scroll-margin-top: 115px;
+}
 #mainbox{
+    position: fixed;
     height: 111px;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 1px 2px 0 1px black ;
+    background-color: white;
+    z-index: 10;
+    margin-top: 0px;
 }
 #mainbox>img{
     height: 53px;
