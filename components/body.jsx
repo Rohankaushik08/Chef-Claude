@@ -26,7 +26,9 @@ export default function Body() {
     }
     const reciepeSection = React.useRef(null);
     React.useEffect(()=>{
-        if(recipe!="") reciepeSection.current.scrollIntoView();
+        if(recipe!="") reciepeSection.current.scrollIntoView({
+            behavior: "smooth"
+        });
     },[recipe])
     return (
         <div id="box">
@@ -37,8 +39,8 @@ export default function Body() {
                         <button id="sbmt">+Add Ingredient</button>
                     </form>
                 </div>
-                {ingredients.length > 0 && <Ingrediants ref={reciepeSection} ingList={ingredients} getReciepe={getReciepe}/>}
-                {recipeShown && <ClaudeReciepe recipe={recipe}/>}
+                {ingredients.length > 0 && <Ingrediants ingList={ingredients} getReciepe={getReciepe}/>}
+                {recipeShown && <ClaudeReciepe ref={reciepeSection} recipe={recipe}/>}
             </div>
         </div>
     )
